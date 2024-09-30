@@ -1,3 +1,4 @@
+//https://www.codewars.com/kata/576bb71bbbcf0951d5000044/train/rust
 pub fn count_positives_sum_negatives(input: Vec<i32>) -> Vec<i32> {
     let mut result = Vec::<i32>::new();
     let mut positive_count=0;
