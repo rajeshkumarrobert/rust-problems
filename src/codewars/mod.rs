@@ -6,3 +6,4 @@ pub mod make_negative;
 pub mod greet_string;
 pub mod messi_goals;
 pub mod remove_char;
+pub mod square_array;

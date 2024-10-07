@@ -5,7 +5,8 @@ use codewars::{count_positive_sum_negative::count_positives_sum_negatives,
     reverse_array::digitize,
     greet_string::greet,
     messi_goals::goals,
-    remove_char::remove_char
+    remove_char::remove_char,
+    square_array::square_sum
 };
 mod codewars;
 fn main() {
@@ -18,4 +19,5 @@ fn main() {
     println!("{}",greet("Ryan"));
     println!("{}",goals(43, 10, 5));
     println!("{}",remove_char("country"));
+    println!("{}",square_sum(vec![5, 3, 4]));
 }
