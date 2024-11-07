@@ -7,3 +7,6 @@ pub mod greet_string;
 pub mod messi_goals;
 pub mod remove_char;
 pub mod square_array;
+pub mod reverse_string;
+pub mod remove_vowel;
+pub mod integer_operations;
