@@ -9,8 +9,11 @@ use codewars::{count_positive_sum_negative::count_positives_sum_negatives,
     square_array::square_sum,
     reverse_string::solution,
     remove_vowel::disemvowel,
-    integer_operations::high_and_low
+    integer_operations::high_and_low,
+    opposite::opposite,
+    series_sum::series_sum,
 };
+use leetcode::{merge_alternately,merge_sorted_array};
 
 use leetcode::add_two_numbers::{ListNode, Solution};
 mod codewars;
@@ -29,6 +32,12 @@ fn main() {
     println!("{}",solution("world"));
     println!("{}",disemvowel("This website is for losers LOL!"));
     println!("{}",high_and_low("8 3 -5 42 -1 0 0 -9 4 7 4 -4"));
+    println!("{}",opposite(23));
+    println!("{}",series_sum(3));
+    println!("{}",merge_alternately::merge_alternately("ab".to_string(), "pqrs".to_string()));
+    println!("{}",merge_alternately::gcd_of_strings("ABCDEF".to_string(), "ABC".to_string()));
+    merge_sorted_array::merge(vec![1,2,3,0,0,0], 3, vec![2,5,6], 3);
+    merge_sorted_array::remove_element(&mut vec![0,1,2,2,3,0,4,2], 2);
     // let mut l1 = ListNode::new(2 );
     // let mut second = ListNode::new(4);
     // let third = ListNode::new(3);

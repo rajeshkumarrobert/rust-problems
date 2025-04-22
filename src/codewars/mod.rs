@@ -10,3 +10,5 @@ pub mod square_array;
 pub mod reverse_string;
 pub mod remove_vowel;
 pub mod integer_operations;
+pub mod opposite;
+pub mod series_sum;
