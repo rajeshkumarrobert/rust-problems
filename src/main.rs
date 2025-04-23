@@ -12,12 +12,14 @@ use codewars::{count_positive_sum_negative::count_positives_sum_negatives,
     integer_operations::high_and_low,
     opposite::opposite,
     series_sum::series_sum,
+    exes_and_ohs::xo,
 };
 use leetcode::{merge_alternately,merge_sorted_array};
-
+use dsa::{bubble_sorting::bubble_sort, selection_sorting::selection_sort};
 use leetcode::add_two_numbers::{ListNode, Solution};
 mod codewars;
 mod leetcode;
+mod dsa;
 fn main() {
     //println!("Hello, world!");
     digitize(348597);
@@ -38,6 +40,7 @@ fn main() {
     println!("{}",merge_alternately::gcd_of_strings("ABCDEF".to_string(), "ABC".to_string()));
     merge_sorted_array::merge(vec![1,2,3,0,0,0], 3, vec![2,5,6], 3);
     merge_sorted_array::remove_element(&mut vec![0,1,2,2,3,0,4,2], 2);
+    println!("{}",xo("xo"));
     // let mut l1 = ListNode::new(2 );
     // let mut second = ListNode::new(4);
     // let third = ListNode::new(3);
@@ -51,4 +54,6 @@ fn main() {
     // println!("{:?}",l1);
     // println!("{:?}",l2);
     // println!("{:?}",Solution::add_two_numbers(Some(Box::new(l1)), Some(Box::new(l2))))
+    println!("{:?}",bubble_sort(vec![5,9,2,4,3]));
+    println!("{:?}",selection_sort(vec![5,9,2,4,3]));
 }

@@ -12,3 +12,4 @@ pub mod remove_vowel;
 pub mod integer_operations;
 pub mod opposite;
 pub mod series_sum;
+pub mod exes_and_ohs;
