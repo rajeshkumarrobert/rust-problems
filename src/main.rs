@@ -14,8 +14,9 @@ use codewars::{count_positive_sum_negative::count_positives_sum_negatives,
     series_sum::series_sum,
     exes_and_ohs::xo,
 };
-use leetcode::{merge_alternately,merge_sorted_array};
-use dsa::{bubble_sorting::bubble_sort, selection_sorting::selection_sort};
+use leetcode::{merge_alternately,merge_sorted_array,three_sum,remove_duplicates};
+use dsa::{bubble_sorting::bubble_sort, selection_sorting::selection_sort,
+    insertion_sorting::insertion_sort};
 use leetcode::add_two_numbers::{ListNode, Solution};
 mod codewars;
 mod leetcode;
@@ -54,6 +55,11 @@ fn main() {
     // println!("{:?}",l1);
     // println!("{:?}",l2);
     // println!("{:?}",Solution::add_two_numbers(Some(Box::new(l1)), Some(Box::new(l2))))
-    println!("{:?}",bubble_sort(vec![5,9,2,4,3]));
-    println!("{:?}",selection_sort(vec![5,9,2,4,3]));
+    println!("Bubble sort: {:?}",bubble_sort(vec![5,9,2,4,3]));
+    println!("Selection sort: {:?}",selection_sort(vec![5,9,2,4,3]));
+    println!("Insertion sort: {:?}",insertion_sort(vec![5,9,2,4,3]));
+    //println!("The three sum result is {:?}",three_sum::three_sum(vec![])); //Need to work
+    println!("Remove duplicates: {:?}",remove_duplicates::remove_duplicates(&mut vec![1,1,2,3]));
+    println!("Search insert:{:?}",merge_sorted_array::search_insert(vec![1,3,5,6], 7));
+    println!("plus one:{:?}",merge_sorted_array::plus_one(vec![1,2,3]))
 }

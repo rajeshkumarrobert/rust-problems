@@ -31,13 +31,37 @@ pub fn merge(mut nums1: Vec<i32>, m: i32, nums2: Vec<i32>, n: i32) {
 }
 
 pub fn remove_element(nums: &mut Vec<i32>, val: i32) -> i32 {
-    let res = nums.iter().fold(0, |mut acc, x|{ 
-        if *x!=val{
-        acc+=1;
-        acc
-    }else{
-        acc
-    }});
-        println!("{}",res);
-        res
+    nums.retain(|&x| x != val);
+    return nums.len() as i32;
+
+}
+
+pub fn search_insert(nums: Vec<i32>, target: i32) -> i32 {
+    let mut res = 0;
+    for (i,j) in nums.iter().enumerate(){
+        if *j == target {
+          res = i;
+          break;
+        }else if *j > target {
+            res = i;
+            break;
+        }else {
+            res = i+1;
+        }
+    }
+    return res as i32;
+}
+
+pub fn plus_one(mut digits: Vec<i32>) -> Vec<i32> {
+       for x in digits.iter_mut().rev() {
+            match *x == 9 {
+                true => *x = 0,
+                false => {
+                    *x += 1;
+                    return digits;
+                }
+            }
+        }
+        digits.insert(0, 1);
+        digits
 }
