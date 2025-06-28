@@ -61,5 +61,12 @@ fn main() {
     //println!("The three sum result is {:?}",three_sum::three_sum(vec![])); //Need to work
     println!("Remove duplicates: {:?}",remove_duplicates::remove_duplicates(&mut vec![1,1,2,3]));
     println!("Search insert:{:?}",merge_sorted_array::search_insert(vec![1,3,5,6], 7));
-    println!("plus one:{:?}",merge_sorted_array::plus_one(vec![1,2,3]))
+    println!("plus one:{:?}",merge_sorted_array::plus_one(vec![1,2,3]));
+    println!("Max profit:{:?}",merge_sorted_array::max_profit(vec![2,4,1]));
+    println!("Pascal Triangle:{:?}",merge_sorted_array::generate(5));
+    println!("Pascal row:{:?}",merge_sorted_array::get_row(3));
+    println!("Single Number:{:?}",merge_sorted_array::single_number(vec![2,2,1,2]));
+    println!("Majority Element:{:?}",merge_sorted_array::majority_element(vec![2,2,1,1,1,1,3,2]));
+    println!("Contains Duplicate:{:?}",merge_sorted_array::contains_duplicate(vec![2,2,1,1,1,1,3,2]));
+    println!("Contains nearby Duplicate:{:?}",merge_sorted_array::contains_nearby_duplicate(vec![1,5,1,0],2));
 }
