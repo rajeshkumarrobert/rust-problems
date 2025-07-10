@@ -14,10 +14,11 @@ use codewars::{count_positive_sum_negative::count_positives_sum_negatives,
     series_sum::series_sum,
     exes_and_ohs::xo,
 };
-use leetcode::{merge_alternately,merge_sorted_array,three_sum,remove_duplicates};
+use leetcode::{merge_alternately,merge_sorted_array,remove_duplicates,string_related_probs};
 use dsa::{bubble_sorting::bubble_sort, selection_sorting::selection_sort,
     insertion_sorting::insertion_sort};
-use leetcode::add_two_numbers::{ListNode, Solution};
+
+use crate::leetcode::merge_sorted_array::NumArray;
 mod codewars;
 mod leetcode;
 mod dsa;
@@ -69,4 +70,18 @@ fn main() {
     println!("Majority Element:{:?}",merge_sorted_array::majority_element(vec![2,2,1,1,1,1,3,2]));
     println!("Contains Duplicate:{:?}",merge_sorted_array::contains_duplicate(vec![2,2,1,1,1,1,3,2]));
     println!("Contains nearby Duplicate:{:?}",merge_sorted_array::contains_nearby_duplicate(vec![1,5,1,0],2));
+    println!("Summary Ranges:{:?}",merge_sorted_array::summary_ranges(vec![0,2,3,4,6,8,9]));
+    println!("Missing Number:{:?}",merge_sorted_array::missing_number(vec![3,0,1]));
+    println!("Is Brackets are Valid :{:?}",string_related_probs::is_valid("()".to_string()));
+    println!("Longest common prefix :{:?}",string_related_probs::longest_common_prefix(vec!["flower".to_string(),"fan".to_string(),"flight".to_string()]));
+    let value = &mut vec![0,1,0,3,12];
+    merge_sorted_array::move_zeroes(value);
+    println!("Move Zeros:{:?}",value);
+    let obj = NumArray::new(vec![-2,0,3,-5,2,-1]);
+    let ret_1: i32 = obj.sum_range(2,5);
+    println!("Num Array:{:?}",ret_1);
+    println!("Intersection Number:{:?}",merge_sorted_array::intersection(vec![4,9,5], vec![9,4,9,8,4]));
+    println!("Roman to integer :{:?}",string_related_probs::roman_to_int("III".to_string()));
+    println!("Subset String :{:?}",string_related_probs::str_str("sadbutsad".to_string(),"sad".to_string()));
+    println!("last word size :{:?}",string_related_probs::length_of_last_word("luffy is still joyboy".to_string()));
 }

@@ -165,3 +165,100 @@ pub fn contains_nearby_duplicate(nums: Vec<i32>, k: i32) -> bool {
     }
     false
 }
+
+pub fn summary_ranges(nums: Vec<i32>) -> Vec<String> {
+    if nums.len() <= 0 {
+        return vec![];
+    }
+    let mut i = nums[0];
+    let mut end = nums[0];
+    let mut index = 1;
+    let mut res = Vec::new();
+    let repr = |a, b| {
+        if b == a {
+            format!("{}", a)
+        } else {
+            format!("{}->{}", a, b)
+        }
+    };
+    for x in 1..nums.len() {
+        if (nums[x] - nums[x - 1]) == 1 {
+            end = nums[index];
+            index += 1;
+        } else {
+            end = nums[index - 1];
+            res.push(repr(i, end));
+            i = nums[index];
+            index += 1;
+        }
+    }
+    if end == *nums.last().unwrap() {
+        res.push(repr(i, end));
+    } else {
+        res.push(repr(i, *nums.last().unwrap()));
+    }
+    res
+}
+
+pub fn missing_number(nums: Vec<i32>) -> i32 {
+    let mut arr  =nums;
+    arr.sort();
+    let len = arr.len();
+    if len == 0 {
+        return 0;
+    }
+
+    let mut  res = 0;
+    for x in 0..arr.len(){
+        if arr[x] == x as i32{
+            res+=1;
+        }
+    }
+    return res
+}
+
+pub fn move_zeroes(nums: &mut Vec<i32>) {
+        let mut left = 0;
+        for right in 0..nums.len() {
+            if nums[right] != 0 {
+                nums.swap(left, right);
+                left += 1;
+            }
+        }
+}
+
+pub struct NumArray {
+    arr:Vec<i32>
+}
+
+impl NumArray {
+
+    pub fn new(nums: Vec<i32>) -> Self {
+        Self { 
+            arr:nums
+        }
+    }
+    
+    pub fn sum_range(&self, left: i32, right: i32) -> i32 {
+        let mut res = 0;
+        for x in left..=right {
+            res += self.arr[x as usize]
+        }
+        res
+    }
+}
+
+pub fn intersection(nums1: Vec<i32>, nums2: Vec<i32>) -> Vec<i32> {
+    let mut res = HashSet::new();
+
+    for i in nums1{
+        for j in nums2.iter()  {
+            if i == *j {
+                res.insert(i);
+                continue;
+            }
+        }
+    }
+
+    res.iter().cloned().collect()
+}
