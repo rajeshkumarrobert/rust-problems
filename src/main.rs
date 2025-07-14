@@ -84,4 +84,15 @@ fn main() {
     println!("Roman to integer :{:?}",string_related_probs::roman_to_int("III".to_string()));
     println!("Subset String :{:?}",string_related_probs::str_str("sadbutsad".to_string(),"sad".to_string()));
     println!("last word size :{:?}",string_related_probs::length_of_last_word("luffy is still joyboy".to_string()));
+    println!("Is palindrome :{:?}",string_related_probs::is_palindrome("A man, a plan, a canal: Panama".to_string()));
+    println!("Excel title :{:?}",string_related_probs::convert_to_title(23));
+    println!("Excel title to number:{:?}",string_related_probs::title_to_number("ZY".to_string()));
+    println!("Is isomorphic:{:?}",string_related_probs::is_isomorphic("egg".to_string(),"add".to_string()));
+    println!("Is anagram:{:?}",string_related_probs::is_anagram("rat".to_string(),"car".to_string()));
+    println!("Pattern Matching:{:?}",string_related_probs::word_pattern("abba".to_string(),"dog cat cat fish".to_string()));
+    let mut string_value = vec!['h','a','n','n','a','h'];
+    string_related_probs::reverse_string(&mut string_value);
+    println!("Reverse a String:{string_value:?}");
+    println!("Reverse a Vowel:{:?}",string_related_probs::reverse_vowels("a.".to_string()));
+    
 }
