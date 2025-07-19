@@ -14,7 +14,7 @@ use codewars::{count_positive_sum_negative::count_positives_sum_negatives,
     series_sum::series_sum,
     exes_and_ohs::xo,
 };
-use leetcode::{merge_alternately,merge_sorted_array,remove_duplicates,string_related_probs};
+use leetcode::{merge_alternately,merge_sorted_array,remove_duplicates,string_related_probs,hash_table_problems};
 use dsa::{bubble_sorting::bubble_sort, selection_sorting::selection_sort,
     insertion_sorting::insertion_sort};
 
@@ -94,5 +94,17 @@ fn main() {
     string_related_probs::reverse_string(&mut string_value);
     println!("Reverse a String:{string_value:?}");
     println!("Reverse a Vowel:{:?}",string_related_probs::reverse_vowels("a.".to_string()));
-    
+    println!("can construct:{:?}",string_related_probs::can_construct("a".to_string(),"b".to_string()));
+    println!("First Unique char:{:?}", string_related_probs::first_uniq_char("aabb".to_string()));
+    println!("Find the difference:{:?}", string_related_probs::find_the_difference("abcd".to_string(),"abcde".to_string()));
+    println!("is Subsequence:{:?}", string_related_probs::is_subsequence("abc".to_string(),"ahbgdc".to_string()));
+    println!("Longest Palindrome:{:?}", string_related_probs::longest_palindrome("a".to_string()));
+    println!("Fizz buzz:{:?}", string_related_probs::fizz_buzz(3));
+    //hashtable problems
+    println!("Intersect:{:?}", hash_table_problems::intersect(vec![3,1,2],vec![1,1]));
+    println!("Difference Number:{:?}", hash_table_problems::find_disappeared_numbers(vec![2,2]));
+    println!("Next greater Element:{:?}", hash_table_problems::next_greater_element(vec![1,3,5,2,4],vec![6,5,4,3,2,1,7]));
+    println!("Find words:{:?}", hash_table_problems::find_words(vec!["adsdf".to_string(),"sfd".to_string()]));
+    println!("distribute candies:{:?}", hash_table_problems::distribute_candies(vec![6,6,6,6]));
+    println!("Find harmonies:{:?}", hash_table_problems::find_lhs(vec![1,1,1,1]));
 }

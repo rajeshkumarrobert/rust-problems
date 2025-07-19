@@ -1,4 +1,4 @@
-use std::collections::{HashMap, HashSet};
+use std::{collections::{HashMap, HashSet}};
 
 pub fn is_valid(s: String) -> bool {
       let bracket_map = [(')', '('), ('}', '{'), (']', '[')].iter().cloned().collect::<std::collections::HashMap<_, _>>();
@@ -223,4 +223,143 @@ pub fn reverse_vowels(s: String) -> String {
             } 
         }
         s.iter().collect::<String>()
+    }
+
+pub fn can_construct(ransom_note: String, magazine: String) -> bool {
+        if ransom_note.len() <= magazine.len() {
+            let mut count_chars_magazine = HashMap::new();
+            for ch in magazine.chars() {
+                count_chars_magazine
+                    .entry(ch)
+                    .and_modify(|counter| *counter += 1)
+                    .or_insert(1);
+            }
+            for ch in ransom_note.chars() {
+                match count_chars_magazine.get_mut(&ch) {
+                    Some(c) if *c > 0 => {*c -= 1},
+                    _ => {return false}
+                }
+            }
+            true
+        } else {
+            false
+        }
+    }
+
+pub fn first_uniq_char(s: String) -> i32 {
+        let vec_char = s.chars().collect::<Vec<char>>();
+        let mut val = HashMap::new();
+        for char in vec_char.clone(){
+            val.entry(char).and_modify(|c| *c+=1).or_insert(1);
+        }
+        println!("Hashmap ={:?}",val);
+        let mut not_repeated_char:Option<char>=  None;
+        
+        for value in s.chars(){
+            if *val.get(&value).unwrap() == 1{
+                println!("{value:?}");
+                not_repeated_char = Some(value);
+                break;
+            }
+        }
+
+        let mut not_repeated_index =0;
+        let mut char_index =  |c:char| {
+            for (i,char) in vec_char.iter().enumerate() {
+                if c == *char{
+                    not_repeated_index=i;
+                    break;
+                }
+            }
+        };
+        if not_repeated_char.is_none(){
+            return -1;
+        }else {
+            char_index(not_repeated_char.unwrap());
+            return not_repeated_index as i32;
+        }
+    }
+
+pub fn find_the_difference(s: String, t: String) -> char {
+        let mut counts = [0u16; 26];
+        for &ch in t.as_bytes() {
+            counts[(ch - b'a') as usize] += 1;
+        }
+        for &ch in s.as_bytes() {
+            counts[(ch - b'a') as usize] -= 1;
+        }
+        let pos = counts.iter().position(|&count| count != 0).unwrap();
+        (pos as u8 + b'a') as _
+    }
+
+pub fn is_subsequence(s: String, t: String) -> bool {
+        if s.len() == 0{
+            return true;
+        }
+        if t.len() < s.len(){
+            return false;
+        }
+        let s_chars = s.chars().collect::<Vec<char>>();
+        let t_chars = t.chars().collect::<Vec<char>>();
+        let mut total_letters = s_chars.len();
+        let mut left = 0;
+        let right = t.len()-1;
+        for c in s_chars{
+            while left < right+1 {
+                if c == t_chars[left]{
+                    total_letters -=1;
+                    left+=1;
+                    break;
+                }
+                left+=1;
+            }
+        }
+        println!("{total_letters}");
+        if total_letters == 0{
+            return true;
+        }else {
+            return false;
+        }
+    }
+
+pub fn longest_palindrome(s: String) -> i32 {
+        let s_chars = s.chars().collect::<Vec<char>>();
+        let mut hash_table = HashMap::new();
+        for c in s_chars{
+            hash_table.entry(c).and_modify(|c| {*c+=1}).or_insert(1);
+        }
+        let mut result = 0;
+        println!("{hash_table:?}");
+        let mut y:i32=0;
+        for val in hash_table.values(){
+            if *val%2 ==0 {
+                result = result+*val;
+            }else {
+                if *val>2{
+                    let x = val/2;
+                    result = result + 2*x;
+                    y = val%2;
+                }else{
+                    y +=1;
+                }
+
+            } 
+        }
+        result + ( if y != 0 { 1 } else { 0 } )
+    }
+
+pub fn fizz_buzz(n: i32) -> Vec<String> {
+        let mut result: Vec<String> = vec![];
+        for i in 1..=n{
+            if i%3 == 0 && i%5 == 0 {
+                result.push("FizzBuzz".to_string());
+            }else if i%5 == 0 {
+                result.push("Buzz".to_string());
+            }else if i%3 == 0{
+                result.push("Fizz".to_string());
+            }else {
+                result.push(i.to_string());
+            }
+        }
+        result
     }
