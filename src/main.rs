@@ -14,7 +14,7 @@ use codewars::{count_positive_sum_negative::count_positives_sum_negatives,
     series_sum::series_sum,
     exes_and_ohs::xo,
 };
-use leetcode::{merge_alternately,merge_sorted_array,remove_duplicates,string_related_probs,hash_table_problems};
+use leetcode::{merge_alternately,merge_sorted_array,remove_duplicates,string_related_probs,hash_table_problems,math_related_problems};
 use dsa::{bubble_sorting::bubble_sort, selection_sorting::selection_sort,
     insertion_sorting::insertion_sort};
 
@@ -107,4 +107,20 @@ fn main() {
     println!("Find words:{:?}", hash_table_problems::find_words(vec!["adsdf".to_string(),"sfd".to_string()]));
     println!("distribute candies:{:?}", hash_table_problems::distribute_candies(vec![6,6,6,6]));
     println!("Find harmonies:{:?}", hash_table_problems::find_lhs(vec![1,1,1,1]));
+    //Math related problems
+    println!("Number is palindrome:{:?}", math_related_problems::is_palindrome(121));
+    println!("sqrt of number:{:?}", math_related_problems::my_sqrt(14));
+    println!("climb stairs:{:?}", math_related_problems::climb_stairs(3));
+    println!("is happy number:{:?}", math_related_problems::is_happy(19));
+    println!("power of two:{:?}", math_related_problems::is_power_of_two(6));
+    println!("add digits:{:?}", math_related_problems::add_digits(0));
+    println!("is Ugly:{:?}", math_related_problems::is_ugly(6));
+    println!("can win nim:{:?}", math_related_problems::can_win_nim(6));
+    println!("power of three:{:?}", math_related_problems::is_power_of_three(-1));
+    println!("power of four:{:?}", math_related_problems::is_power_of_four(1));
+    println!("perfect square:{:?}", math_related_problems::is_perfect_square(16));
+    println!("add strings:{:?}", math_related_problems::add_strings("11".to_string(),"123".to_string()));
+    println!("arrange coins:{:?}", math_related_problems::arrange_coins(8));
+    println!("construct rectangle:{:?}", math_related_problems::construct_rectangle(122122));
+    println!("Perfect Number:{:?}", math_related_problems::check_perfect_number(28));
 }

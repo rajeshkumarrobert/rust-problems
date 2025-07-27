@@ -122,12 +122,10 @@ pub fn find_lhs(nums: Vec<i32>) -> i32 {
         for i in nums{
             *hash_map.entry(i).or_insert(0)+=1;
         }
-        println!("{hash_map:?}");
         let mut result = vec![];
         for key in hash_map.keys() {
             match (hash_map.get(key),hash_map.get(&(key+1))) {
                 (Some(val1),Some(val2)) =>{
-                    println!("{:?},{:?}",Some(&val1),Some(val2));
                     result.push(*val1+*val2);
                 },
                 _ =>{},
