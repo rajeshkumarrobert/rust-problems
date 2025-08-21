@@ -6,3 +6,6 @@ pub mod remove_duplicates;
 pub mod string_related_probs;
 pub mod hash_table_problems;
 pub mod math_related_problems;
+pub mod sorting_related_problems;
+pub mod two_pointers;
+pub mod binary_search;

@@ -14,11 +14,12 @@ use codewars::{count_positive_sum_negative::count_positives_sum_negatives,
     series_sum::series_sum,
     exes_and_ohs::xo,
 };
-use leetcode::{merge_alternately,merge_sorted_array,remove_duplicates,string_related_probs,hash_table_problems,math_related_problems};
+use leetcode::{merge_alternately,merge_sorted_array,remove_duplicates,string_related_probs,
+    hash_table_problems,math_related_problems,sorting_related_problems, two_pointers, binary_search::Solution};
 use dsa::{bubble_sorting::bubble_sort, selection_sorting::selection_sort,
     insertion_sorting::insertion_sort};
 
-use crate::leetcode::merge_sorted_array::NumArray;
+use crate::leetcode::{ binary_search, merge_sorted_array::NumArray};
 mod codewars;
 mod leetcode;
 mod dsa;
@@ -123,4 +124,38 @@ fn main() {
     println!("arrange coins:{:?}", math_related_problems::arrange_coins(8));
     println!("construct rectangle:{:?}", math_related_problems::construct_rectangle(122122));
     println!("Perfect Number:{:?}", math_related_problems::check_perfect_number(28));
+    //sorting related problems
+    println!("Perfect Number:{:?}", sorting_related_problems::third_max(vec![3,2,1]));
+    println!("Find the content children:{:?}", sorting_related_problems::find_content_children(vec![1,2],vec![1,2,3]));
+    println!("Relative Ranks:{:?}", sorting_related_problems::find_relative_ranks(vec![5,4,3,2,1]));
+    println!("array pair sum:{:?}", sorting_related_problems::array_pair_sum(vec![6,2,6,5,1,2]));
+    println!("maximum product:{:?}", sorting_related_problems::maximum_product(vec![-1,-2,-3]));
+    println!("Find error nums:{:?}", sorting_related_problems::find_error_nums(vec![1,1]));
+    println!("Find Dominant Value:{:?}", sorting_related_problems::dominant_index(vec![1,2,3,4]));
+    println!("Fair candy swap:{:?}", sorting_related_problems::fair_candy_swap(vec![2],vec![1,3]));
+    println!("sort by pairty:{:?}", sorting_related_problems::sort_array_by_parity(vec![0]));
+    println!("sort by pairty II:{:?}", sorting_related_problems::sort_array_by_parity_ii(vec![2,3]));
+    println!("Sorted Squares:{:?}", sorting_related_problems::sorted_squares(vec![-4,-1,0,3,10]));
+    //two pointers
+    println!("Reverse String:{:?}", two_pointers::reverse_str("abcdefg".to_string(),3));
+    println!("Reverse words:{:?}", two_pointers::reverse_words("Let's take LeetCode contest".to_string()));
+    println!("Valid Palindrome:{:?}", two_pointers::valid_palindrome("aguokepatgbnvfqmgmlcupuufxoohdfpgjdmysgvhmvffcnqxjjxqncffvmhvgsymdjgpfdhooxfuupuculmgmqfvnbgtapekouga".to_string()));
+    //Binary Search
+    let bad_version = Solution{
+        bad_version: 1
+    };
+    println!("First bad version:{:?}", Solution::first_bad_version(&bad_version,1));
+    println!("First bad version:{:?}", binary_search::search(vec![2,5],5));
+    println!("Next Greatest Letter:{:?}", binary_search::next_greatest_letter(vec!['c','f','j'],'c'));
+    println!("Next matrix solution:{:?}", binary_search::k_weakest_rows(
+        vec![vec![1,1,0,0,0],
+             vec![1,1,1,1,0],
+             vec![1,0,0,0,0],
+             vec![1,1,0,0,0],
+             vec![1,1,1,1,1]],3));
+    println!("Check if it exsist:{:?}", binary_search::check_if_exist(vec![0,0,-2,2]));
+    println!("Count negatives:{:?}", binary_search::count_negatives(vec![vec![4,3,2,-1],vec![3,2,1,-1],vec![1,1,-1,-2],vec![-1,-1,-2,-3]]));
+    println!("find the distance:{:?}", binary_search::find_the_distance_value(vec![1,4,2,3],vec![-4,-3,6,10,20,30],3));
+    println!("Find the kth positive number:{:?}", binary_search::find_kth_positive(vec![1,2,3,4],2));
+
 }
