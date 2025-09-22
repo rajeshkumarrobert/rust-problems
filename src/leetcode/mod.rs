@@ -9,3 +9,5 @@ pub mod math_related_problems;
 pub mod sorting_related_problems;
 pub mod two_pointers;
 pub mod binary_search;
+pub mod prefix_sum;
+pub mod dynamic_programming;

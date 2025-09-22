@@ -142,3 +142,62 @@ pub fn find_kth_positive(arr: Vec<i32>, k: i32) -> i32 {
         temp[k as usize-1]
        }
 
+pub fn special_array(nums: Vec<i32>) -> i32 {
+        let mut right = 1;
+        let mut left = nums.len() as i32;
+
+        while right <= left {
+            let half = ((left - right) / 2) + right;
+
+            // check half
+            let mut count = 0;
+            for &n in &nums {
+                if n >= half {
+                    count += 1;
+                }
+            }
+            if count == half {
+                return half;
+            } else if count > half {
+                right = half + 1;
+            } else {
+                left = half - 1;
+            }
+        }
+
+        -1
+    }
+
+pub fn target_indices(nums: Vec<i32>, target: i32) -> Vec<i32> {
+        let mut nums = nums;
+        nums.sort();
+        let mut index = 0;
+        let mut res = vec![];
+        for x in nums{
+            if x == target{
+                res.push(index);
+            }
+            index+=1;
+        }
+        res
+    }
+
+pub fn answer_queries(nums: Vec<i32>, queries: Vec<i32>) -> Vec<i32> {
+        let mut res = vec![];
+        let mut nums = nums;
+        nums.sort();
+        for x in queries{
+            let mut sub_sequence = vec![];
+            let mut sum = 0;
+            for y in &nums{
+                sum = sum+y;
+                if x >= sum{
+                    sub_sequence.push(y);
+                }else {
+                    break;
+                }
+            }
+            res.push(sub_sequence.len() as i32);
+        }
+        res
+    }

@@ -15,7 +15,8 @@ use codewars::{count_positive_sum_negative::count_positives_sum_negatives,
     exes_and_ohs::xo,
 };
 use leetcode::{merge_alternately,merge_sorted_array,remove_duplicates,string_related_probs,
-    hash_table_problems,math_related_problems,sorting_related_problems, two_pointers, binary_search::Solution};
+    hash_table_problems,math_related_problems,sorting_related_problems, two_pointers, binary_search::Solution,
+    prefix_sum,dynamic_programming};
 use dsa::{bubble_sorting::bubble_sort, selection_sorting::selection_sort,
     insertion_sorting::insertion_sort};
 
@@ -157,5 +158,30 @@ fn main() {
     println!("Count negatives:{:?}", binary_search::count_negatives(vec![vec![4,3,2,-1],vec![3,2,1,-1],vec![1,1,-1,-2],vec![-1,-1,-2,-3]]));
     println!("find the distance:{:?}", binary_search::find_the_distance_value(vec![1,4,2,3],vec![-4,-3,6,10,20,30],3));
     println!("Find the kth positive number:{:?}", binary_search::find_kth_positive(vec![1,2,3,4],2));
-
+    println!("Find the special array:{:?}", binary_search::special_array(vec![3,6,7,7,0]));
+    println!("Find the target indices:{:?}", binary_search::target_indices(vec![1,2,5,2,3],5));
+    println!("Answer Queries:{:?}", binary_search::answer_queries(vec![2,3,4,5],vec![1]));
+    //prefix sum
+    println!("Pivot index:{:?}", prefix_sum::pivot_index(vec![1,7,3,6,5,6]));
+    println!("Minimum start value:{:?}", prefix_sum::min_start_value(vec![1,-2,-3]));
+    println!("Max Score:{:?}", prefix_sum::max_score("011101".to_string()));
+    println!("Running sum:{:?}", prefix_sum::running_sum(vec![3,1,2,10,1]));
+    println!("Print sum Odd length subarrays:{:?}", prefix_sum::sum_odd_length_subarrays(vec![10,11,12]));
+    println!("Print largest altitude:{:?}", prefix_sum::largest_altitude(vec![-4,-3,-2,-1,4,3,2]));
+    println!("Print Maximum population:{:?}", prefix_sum::maximum_population(vec![vec![1950,1961],vec![1960,1971],vec![1970,1981]]));
+    println!("Print Is covered or not:{:?}", prefix_sum::is_covered(vec![vec![1,50]],1,50));
+    println!("Print left and right difference:{:?}", prefix_sum::left_right_difference(vec![1]));
+    println!("Print the return to boundary:{:?}", prefix_sum::return_to_boundary_count(vec![3,2,-3,-4]));
+    println!("Print the minimum sum of subarray:{:?}", prefix_sum::minimum_sum_subarray(vec![3, -2, 1, 4],2,3));
+    println!("Print the Minimum Subarray:{:?}", prefix_sum::subarray_sum(vec![3,1,1,2]));
+    println!("Print the Partition count:{:?}", prefix_sum::count_partitions(vec![2,4,6,8]));
+    println!("Print the min subarray lenght:{:?}", prefix_sum::min_sub_array_len(11,vec![1,2,3,4,5]));
+    //dynamic programming
+    println!("Counts the bits which is 1:{:?}", dynamic_programming::count_bits(5));
+    println!("Counts the fibonacci series:{:?}", dynamic_programming::fib(4));
+    println!("Print the min cost to climb stairs:{:?}", dynamic_programming::min_cost_climbing_stairs(vec![10,15,20]));
+    println!("Print the alice wins or not: {:?}", dynamic_programming::divisor_game(6));
+    println!("Print the value of tribonacci series: {:?}", dynamic_programming::tribonacci(25));
+    println!("Print the maximum repeating: {:?}", dynamic_programming::max_repeating("ababc".to_string(),"ab".to_string()));
+    println!("Print the longest subsequence: {:?}", dynamic_programming::get_longest_subsequence(vec!["a".to_string(),"b".to_string(),"c".to_string(),"d".to_string()],vec![1,0,1,1]));
 }
