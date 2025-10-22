@@ -11,3 +11,5 @@ pub mod two_pointers;
 pub mod binary_search;
 pub mod prefix_sum;
 pub mod dynamic_programming;
+pub mod greedy;
+pub mod breadth_first_search;

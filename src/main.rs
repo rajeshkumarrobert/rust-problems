@@ -16,11 +16,11 @@ use codewars::{count_positive_sum_negative::count_positives_sum_negatives,
 };
 use leetcode::{merge_alternately,merge_sorted_array,remove_duplicates,string_related_probs,
     hash_table_problems,math_related_problems,sorting_related_problems, two_pointers, binary_search::Solution,
-    prefix_sum,dynamic_programming};
+    prefix_sum,dynamic_programming,greedy,breadth_first_search};
 use dsa::{bubble_sorting::bubble_sort, selection_sorting::selection_sort,
     insertion_sorting::insertion_sort};
 
-use crate::leetcode::{ binary_search, merge_sorted_array::NumArray};
+use crate::leetcode::{ binary_search, breadth_first_search::TreeNode, merge_sorted_array::NumArray};
 mod codewars;
 mod leetcode;
 mod dsa;
@@ -184,4 +184,47 @@ fn main() {
     println!("Print the value of tribonacci series: {:?}", dynamic_programming::tribonacci(25));
     println!("Print the maximum repeating: {:?}", dynamic_programming::max_repeating("ababc".to_string(),"ab".to_string()));
     println!("Print the longest subsequence: {:?}", dynamic_programming::get_longest_subsequence(vec!["a".to_string(),"b".to_string(),"c".to_string(),"d".to_string()],vec![1,0,1,1]));
+    println!("Print the longest palindrome: {:?}", dynamic_programming::longest_palindrome("cbbd".to_string()));
+    println!("Print the generated paranthesis: {:?}", dynamic_programming::generate_parenthesis(2));
+    println!("Print the required jump: {:?}", dynamic_programming::jump(vec![2,0,2,0,1]));
+    println!("Print the sum of max subarray: {:?}", dynamic_programming::max_sub_array(vec![5,4,-1,7,8]));
+    println!("Print the can jump last: {:?}", dynamic_programming::can_jump(vec![2,3,1,1,4]));
+    println!("Print the max unique paths: {:?}", dynamic_programming::unique_paths(36,7));
+    println!("Print the max unique paths without obstacles: {:?}", dynamic_programming::unique_paths_with_obstacles(vec![vec![0,0,0],vec![0,1,0],vec![0,0,0]]));
+    println!("Print the minium change distance: {:?}", dynamic_programming::min_distance("intention".to_string(),"execution".to_string()));
+    //greedy problems
+    println!("Can we place new flowers in the flower bed: {:?}", greedy::can_place_flowers(vec![1,0,0,0,0,1],2));
+    println!("Can we give change correctly: {:?}", greedy::lemonade_change(vec![5,5,5,5,20,20,5,5,5,5]));
+    println!("Can we Change DI value: {:?}", greedy::di_string_match("DDI".to_string()));
+    println!("Can we give largest perimeter: {:?}", greedy::largest_perimeter(vec![2,1,2]));
+    println!("Can we change k nagations and sum: {:?}", greedy::largest_sum_after_k_negations(vec![2,-3,-1,5,-4],2));
+    println!("Can we partition into 3 with equal sum: {:?}", greedy::can_three_parts_equal_sum(vec![3,3,6,5,-2,2,5,1,-9,4]));
+    println!("Can we min cost to move chips: {:?}", greedy::min_cost_to_move_chips(vec![1,1000000000]));
+    println!("How many balanced split we can have: {:?}", greedy::balanced_string_split("LLLLRRRR".to_string()));
+    println!("Maximum number we got using 6 and 9: {:?}", greedy::maximum69_number(9999));
+    //medium problems
+    println!("Maximum area we got: {:?}", greedy::max_area(vec![1,8,6,2,5,4,8,3,7]));
+    println!("Maximum profit we got: {:?}", greedy::max_profit(vec![7,6,4,3,1]));
+    println!("Can complete circuit in gas station: {:?}", greedy::can_complete_circuit(vec![1,2,3,4,5],vec![3,4,5,1,2] ));
+
+    //breadth first search
+    println!("print the binary tree inorder traversal: {:?}", breadth_first_search::inorder_traversal(
+        TreeNode::build_tree_from_array(&[Some(1),Some(2),Some(3),Some(4),Some(5),None,Some(8),None,None,Some(6),Some(7),Some(9)])));
+    println!("print Is the given binary trees are same : {:?}", breadth_first_search::is_same_tree(
+        TreeNode::build_tree_from_array(&[Some(2),None,Some(3),None,Some(4),None,Some(5),None,Some(6)]),
+        TreeNode::build_tree_from_array(&[Some(2),None,Some(3),None,Some(4),None,Some(5),None,Some(6)])));
+    println!("Is the binary tree symmetric or not: {:?}", breadth_first_search::is_symmetric(
+        TreeNode::build_tree_from_array(&[Some(2),None,Some(3),None,Some(4),None,Some(5),None,Some(6)])));
+    println!("print the binary tree maximum depth: {:?}", breadth_first_search::max_depth(
+        TreeNode::build_tree_from_array(&[Some(2),None,Some(3),None,Some(4),None,Some(5),None,Some(6)])));
+    println!("Is the binary tree balanced: {:?}", breadth_first_search::is_balanced(
+        TreeNode::build_tree_from_array(&[Some(2),None,Some(3),None,Some(4),None,Some(5),None,Some(6)])));
+    println!("print the binary tree minium depth: {:?}", breadth_first_search::min_depth(
+        TreeNode::build_tree_from_array(&[Some(2),None,Some(3),None,Some(4),None,Some(5),None,Some(6)])));
+    println!("print whether the binary tree has target sum: {:?}", breadth_first_search::has_path_sum(
+        TreeNode::build_tree_from_array(&[Some(5),Some(4),Some(8),Some(11),None,Some(13),Some(4),Some(7),Some(2),None,None,None,Some(1)]),22));
+    println!("print the binary tree pre-order traversal: {:?}", breadth_first_search::preorder_traversal(
+        TreeNode::build_tree_from_array(&[Some(1),Some(2),Some(3),Some(4),Some(5),None,Some(8),None,None,Some(6),Some(7),Some(9)])));
+    println!("print the binary tree pre-order traversal: {:?}", breadth_first_search::postorder_traversal(
+        TreeNode::build_tree_from_array(&[Some(1),Some(2),Some(3),Some(4),Some(5),None,Some(8),None,None,Some(6),Some(7),Some(9)])));
 }
