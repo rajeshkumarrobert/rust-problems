@@ -227,4 +227,26 @@ fn main() {
         TreeNode::build_tree_from_array(&[Some(1),Some(2),Some(3),Some(4),Some(5),None,Some(8),None,None,Some(6),Some(7),Some(9)])));
     println!("print the binary tree pre-order traversal: {:?}", breadth_first_search::postorder_traversal(
         TreeNode::build_tree_from_array(&[Some(1),Some(2),Some(3),Some(4),Some(5),None,Some(8),None,None,Some(6),Some(7),Some(9)])));
+    println!("print the inverted binary tree: {:?}", breadth_first_search::invert_tree(
+        TreeNode::build_tree_from_array(&[Some(4),Some(2),Some(7),Some(1),Some(3),Some(6),Some(9)])));
+    println!("print the path of binary tree: {:?}", breadth_first_search::binary_tree_paths(
+        TreeNode::build_tree_from_array(&[Some(1),Some(2),Some(3),None,Some(5)])));
+    println!("print the mode in the binary tree: {:?}", breadth_first_search::find_mode(
+        TreeNode::build_tree_from_array(&[Some(0)])));
+    println!("print the path of binary tree: {:?}", breadth_first_search::sum_of_left_leaves(
+        TreeNode::build_tree_from_array(&[Some(1)])));
+    println!("print the minimum difference of binary tree: {:?}", breadth_first_search::get_minimum_difference(
+        TreeNode::build_tree_from_array(&[Some(236),Some(104),Some(701),None,Some(227),None,Some(911)])));
+    //Medium
+    println!("print is valid binary search tree: {:?}", breadth_first_search::is_valid_bst(
+        TreeNode::build_tree_from_array(&[Some(2),Some(1),Some(3)])));
+    let mut bst = TreeNode::build_tree_from_array(&[Some(1),Some(3),None,None,Some(2)]);
+    breadth_first_search::recover_tree(&mut bst);
+    println!("print is recovered binary search tree: {:?}", bst);
+    println!("print is whether the word exsist in grid: {:?}", breadth_first_search::exist(
+        vec![vec!['A','B','C','E'],vec!['S','F','C','S'],vec!['A','D','E','E']], "ABCCED".to_string()));
+    println!("print the path to find the target: {:?}", breadth_first_search::path_sum(
+        TreeNode::build_tree_from_array(&[Some(5),Some(4),Some(8),Some(11),None,Some(13),Some(4),Some(7),Some(2),None,None,Some(5),Some(1)]),22));
+    let mut linked_list = TreeNode::build_tree_from_array(&[Some(1),Some(2),Some(5),Some(3),Some(4),None,Some(6)]);
+    breadth_first_search::flatten(&mut linked_list);
 }
