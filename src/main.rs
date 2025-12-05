@@ -16,11 +16,11 @@ use codewars::{count_positive_sum_negative::count_positives_sum_negatives,
 };
 use leetcode::{merge_alternately,merge_sorted_array,remove_duplicates,string_related_probs,
     hash_table_problems,math_related_problems,sorting_related_problems, two_pointers, binary_search::Solution,
-    prefix_sum,dynamic_programming,greedy,breadth_first_search};
+    prefix_sum,dynamic_programming,greedy,breadth_first_search,stack_problems};
 use dsa::{bubble_sorting::bubble_sort, selection_sorting::selection_sort,
     insertion_sorting::insertion_sort};
 
-use crate::leetcode::{ binary_search, breadth_first_search::TreeNode, merge_sorted_array::NumArray};
+use crate::leetcode::{ binary_search, breadth_first_search::TreeNode, merge_sorted_array::NumArray, stack_problems::{ ListNode, MinStack, MyQueue, MyStack, build_node_from_array}};
 mod codewars;
 mod leetcode;
 mod dsa;
@@ -249,4 +249,44 @@ fn main() {
         TreeNode::build_tree_from_array(&[Some(5),Some(4),Some(8),Some(11),None,Some(13),Some(4),Some(7),Some(2),None,None,Some(5),Some(1)]),22));
     let mut linked_list = TreeNode::build_tree_from_array(&[Some(1),Some(2),Some(5),Some(3),Some(4),None,Some(6)]);
     breadth_first_search::flatten(&mut linked_list);
+    let mut vec_stack = MyStack::new();
+    vec_stack.push(1);
+    vec_stack.push(2);
+    vec_stack.push(3);
+    vec_stack.pop();
+    println!("{:?},{:?}",vec_stack.top(),vec_stack.empty());
+
+    let mut vec_queue = MyQueue::new();
+    vec_queue.push(1);
+    vec_queue.push(2);
+    vec_queue.push(3);
+    println!("{},{},{}",vec_queue.pop(),vec_queue.peek(),vec_queue.empty());
+    
+    println!("print the listnode is palindrome or not : {:?}", stack_problems::is_palindrome(
+        build_node_from_array(&[Some(1),Some(2)])));
+    println!("print the sum of the baseball game : {:?}", stack_problems::cal_points(
+        vec!["5".to_string(),"-2".to_string(),"4".to_string(),"C".to_string(),"D".to_string(),"9".to_string(),"+".to_string(),"+".to_string()]));
+    println!("print the result of backspace compare : {:?}", stack_problems::backspace_compare("a#c".to_string(),"b".to_string()));
+    let root = breadth_first_search::TreeNode::build_tree_from_array(
+        &[Some(5),Some(3),Some(6),Some(2),Some(4),None,Some(8),Some(1),None,None,None,Some(7),Some(9)]);
+    println!("print the increasing BST : {:#?}", stack_problems::increasing_bst(root));
+    println!();
+    println!("Remove the outer parentesis : {:#?}", stack_problems::remove_outer_parentheses("()()".to_string()));
+    println!("Remove the duplicate characters : {:#?}", stack_problems::remove_duplicates("azxxzy".to_string()));
+    println!("Print the final discount prices : {:?}", stack_problems::final_prices(vec![10,1,1,6]));
+    println!("Print the string good : {:?}", stack_problems::make_good("s".to_string()));
+    println!("Print the simplified path : {:?}", stack_problems::simplify_path("/home/user/Documents/../Pictures".to_string()));
+    let mut head = build_node_from_array(&[Some(1),Some(2),Some(3),Some(4),Some(5)]);
+    stack_problems::reorder_list(&mut head);
+    println!("Print the reorder list : {:?}",head);
+    println!("Print the Reverse Polish Notation : {:?}", stack_problems::eval_rpn(
+        vec!["10".to_string(),"6".to_string(),"9".to_string(),"3".to_string(),"+".to_string(),"-11".to_string(),"*".to_string(),"/".to_string(),"*".to_string(),"17".to_string(),"+".to_string(),"5".to_string(),"+".to_string()]));
+    let mut stack = MinStack::new();
+    stack.push(-2);
+    stack.push(0);
+    stack.push(-3);
+    stack.pop();
+    stack.top();
+    stack.get_min();
+    println!("Print the min stack : {:?}",stack);
 }

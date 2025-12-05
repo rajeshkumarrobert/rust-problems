@@ -13,3 +13,4 @@ pub mod prefix_sum;
 pub mod dynamic_programming;
 pub mod greedy;
 pub mod breadth_first_search;
+pub mod stack_problems;
