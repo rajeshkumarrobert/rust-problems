@@ -16,14 +16,15 @@ use codewars::{count_positive_sum_negative::count_positives_sum_negatives,
 };
 use leetcode::{merge_alternately,merge_sorted_array,remove_duplicates,string_related_probs,
     hash_table_problems,math_related_problems,sorting_related_problems, two_pointers, binary_search::Solution,
-    prefix_sum,dynamic_programming,greedy,breadth_first_search,stack_problems};
+    prefix_sum,dynamic_programming,greedy,breadth_first_search,stack_problems,sliding_window};
 use dsa::{bubble_sorting::bubble_sort, selection_sorting::selection_sort,
     insertion_sorting::insertion_sort};
 
-use crate::leetcode::{ binary_search, breadth_first_search::TreeNode, merge_sorted_array::NumArray, stack_problems::{ ListNode, MinStack, MyQueue, MyStack, build_node_from_array}};
+use crate::{exercism::medium::{Duration, Earth, Mercury, Planet}, leetcode::{ binary_search, breadth_first_search::TreeNode, heap_priority_queue::{self, KthLargest}, merge_sorted_array::NumArray, stack_problems::{ MinStack, MyQueue, MyStack, build_node_from_array}}};
 mod codewars;
 mod leetcode;
 mod dsa;
+mod exercism;
 fn main() {
     //println!("Hello, world!");
     digitize(348597);
@@ -289,4 +290,42 @@ fn main() {
     stack.top();
     stack.get_min();
     println!("Print the min stack : {:?}",stack);
+
+    //Sliding Window
+    println!("Print the Max Average : {:?}", sliding_window::find_max_average(vec![5],1));
+    println!("Print the decrypt : {:?}", sliding_window::decrypt(vec![2,4,9,3],-2));
+    println!("Print the nice string : {:?}", sliding_window::longest_nice_substring("Bb".to_string()));
+    println!("Print the good substring : {:?}", sliding_window::count_good_substrings("aababcabc".to_string()));
+    println!("Print the minimum difference : {:?}", sliding_window::minimum_difference(vec![9,4,1,7],2));
+    println!("Print the divisor in the substring : {:?}", sliding_window::divisor_substrings(430043,2));
+    println!("Print the minimum recolour occurance : {:?}", sliding_window::minimum_recolors("WBWBBBW".to_string(),2));
+    println!("Print the length of longest alternate substring : {:?}", sliding_window::longest_alternating_subarray(vec![2,3,4,5],4));
+    println!("Print the maximum strong XOR pair : {:?}", sliding_window::maximum_strong_pair_xor(vec![5,6,25,30]));
+    println!("Print the maximum length substring : {:?}", sliding_window::maximum_length_substring("bcbbbcba".to_string()));
+    println!("Print the maximum subarray length : {:?}", sliding_window::minimum_subarray_length(vec![1,2,3],2));
+    println!("Print the alternating groups : {:?}", sliding_window::number_of_alternating_groups(vec![0,1,0,0,1]));
+    //medium
+    println!("Print the longest unique substring : {:?}", sliding_window::length_of_longest_substring("dvdf".to_string()));
+    println!("Print the repeated dna sequence : {:?}", sliding_window::find_repeated_dna_sequences("AAAAAAAAAAAAA".to_string()));
+    println!("Print the longest substring : {:?}", sliding_window::longest_substring("ababbc".to_string(),2));
+    println!("Print the number of airthemetic slice : {:?}", sliding_window::number_of_arithmetic_slices(vec![1,2,3,8,9,10]));
+
+    //Exercism
+    println!("Print the number of ANAGRAMs : {:?}", exercism::medium::anagrams_for("ΑΒΓ",&["ΒΓΑ", "ΒΓΔ", "γβα", "αβγ"]));
+    let mercury_age = 2_134_835_688;
+    let mercury_duration = Duration::from(mercury_age);
+    println!("Mercury Age :{:?}",Mercury::years_during(&mercury_duration));
+    let earth_age = 1_000_000_000;
+    let earth_duration = Duration::from(earth_age);
+    println!("Earth Age :{:?}",Earth::years_during(&earth_duration));
+    println!("Print A {:?} of B", exercism::medium::sublist(&[],&[1, 2, 3]));
+    
+    //heap priority queue
+    let mut kth_largest = KthLargest::new(3, vec![4, 5, 8, 2]);
+    println!("{kth_largest:?}");
+    println!("Print the k_th largest number : {:?}", kth_largest.add(3));
+    println!("Print the k_th largest number : {:?}", kth_largest.add(5));
+    println!("Print the k_th largest number : {:?}", kth_largest.add(10));
+    println!("Print the k_th largest number : {:?}", kth_largest.add(9));
+    println!("Print the last stone weight : {:?}", heap_priority_queue::last_stone_weight(vec![2,7,4,1,8,1]));
 }

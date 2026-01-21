@@ -14,3 +14,5 @@ pub mod dynamic_programming;
 pub mod greedy;
 pub mod breadth_first_search;
 pub mod stack_problems;
+pub mod sliding_window;
+pub mod heap_priority_queue;
